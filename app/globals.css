@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+--animate-appear: appear 400ms ease-in forwards;
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(0.625rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  --animate-disappear: disappear 100ms ease-in forwards;
+  @keyframes disappear {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0.625rem);
+    }
+  }
+  --animate-fold: fold 200ms linear forwards;
+  @keyframes fold {
+    0% {
+      transform: scaleY(100%);
+    }
+    100% {
+      transform: scaleY(0%);
+    }
+  }
+  --animate-unfold: unfold 200ms linear forwards;
+  @keyframes unfold {
+    0% {
+      transform: scaleY(0%);
+    }
+    100% {
+      transform: scaleY(100%);
+    }
+  }
+  --animate-fly: fly 1s forwards infinite;
+  @keyframes fly {
+    0%,
+    100% {
+      transform: translate(0);
+    }
+    50% {
+      transform: translate(25%, 25%);
+    }
+  }
+
+  --color-background: hsl(225, 100%, 99%);
+  --color-primary: hsl(183, 87%, 24%);
+  --color-secondary-background: hsl(22, 89%, 40%);
+  --color-secondary-navbar: hsl(17, 76%, 42%);
+  --color-tertiary: hsl(158, 20%, 81%);
+  --color-fern-green: hsl(103, 36%, 37%);
+  --color-text: hsl(0, 0%, 21%);
+  --color-error: hsl(0, 65%, 51%);
+  --color-skeleton-start: hsl(210, 38%, 95%);
+  --color-skeleton-end: hsl(214, 20%, 69%);
+
+  --text-label: clamp(0.75rem, 1.3vw, 0.875rem);
+  --text-label--line-height: 1.5;
+
+  --text-body: clamp(0.875rem, 1.3vw, 1rem);
+  --text-body--line-height: 1.5;
+
+  --text-button: clamp(1rem, 1.5vw, 1.125rem);
+  --text-button--line-height: 1.5;
+
+  --text-heading1: clamp(2rem, 3vw, 2.5rem);
+  --text-heading1--line-height: 1.5;
+
+  --text-heading2: clamp(1.25rem, 2vw, 1.5rem);
+  --text-heading2--line-height: 1.5;
+
+  --text-heading3: clamp(1.25rem, 2vw, 1.5rem);
+  --text-heading3--line-height: 1.5;
+
+  --text-subtitle: clamp(1rem, 1.5vw, 1.125rem);
+  --text-subtitle--line-height: 1.5;
+
+  --radius-none: 0;
+  --radius-input: 0.375rem 0.375rem 0 0;
+  --radius-avatar: 3.125rem;
+  --radius-pill: 999rem;
+  --radius-round: 50%;
+  --radius-quote: 0.5rem;
+
+  --font-display: var(--font-urbanist), sans-serif;
+  --font-body: var(--font-lora), serif;
+
+  --aspect-social: 9 / 16;
+
+  --shadow-input: 0 0.125rem 0 0 hsla(0, 0%, 0%, 0.7);
+  --shadow-input-focus: 0 0.125rem 0 0 transparent;
+  --shadow-focus: 0 0 0.375rem 0.125rem hsla(0, 0%, 0%, 0.26);
+  --shadow-focus-large: 0 0 0.75rem 0.25rem hsla(0, 0%, 0%, 0.26);
+  --shadow-selected: 0 0 0.5rem 0.25rem hsla(0, 0%, 0%, 0.26);
+  --shadow-selected-large: 0 0 0.1rem 0.5rem hsla(0, 0%, 0%, 0.26);
+  --shadow-text: 0.125rem 0.125rem 0.25rem hsla(0, 0%, 0%, 0.26);
+
+  --inset-shadow-active: inset 0 0 0.375rem 0.25rem hsla(0, 0%, 0%, 0.26);
+  --inset-shadow-active-large: inset 0 0 0.75rem 0.5rem hsla(0, 0%, 0%, 0.26);}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+      margin: 0;
+    padding: 0;
+    font-family: inherit;
+    scroll-behavior: smooth;
+}
+
+  @media (prefers-reduced-motion) {
+    html,
+    body {
+      scroll-behavior: auto;
+    }
+  }
