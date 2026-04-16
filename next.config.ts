@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   reactStrictMode: true,
   distDir: ".next",
-  
 };
 
 export default nextConfig;

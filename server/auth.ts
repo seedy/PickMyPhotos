@@ -1,0 +1,54 @@
+import { env } from "@/env.mjs";
+import { sendEmail } from "@/server/email";
+import { betterAuth } from "better-auth";
+import { nextCookies } from "better-auth/next-js";
+import { after } from "next/server";
+
+export const auth = betterAuth({
+  baseURL: "http://localhost:3000/",
+  emailAndPassword: { 
+    enabled: true, 
+    autoSignIn: false,
+    sendResetPassword: async ({user, url}) => {
+      void after(async () => {
+        await sendEmail({
+                to: user.email,
+                subject: 'Reset your password',
+                html: `Click the link to reset your password: ${url}`
+            })
+          });
+    }
+   },
+  emailVerification: {
+    sendVerificationEmail: async ({user, url}) => {
+      void after(async () => {
+        await sendEmail({
+                to: user.email,
+                subject: 'Verify your email address',
+                html: `Click the link to verify your email: ${url}`
+            })
+          });
+    },
+    sendOnSignUp: true,
+    autoSignInAfterVerification: true,
+  },
+  socialProviders: {
+    facebook: {
+      clientId: env.FACEBOOK_CLIENT_ID!,
+      clientSecret: env.FACEBOOK_CLIENT_SECRET,
+    },
+    google: {
+      clientId: env.GOOGLE_CLIENT_ID!,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
+    },
+    linkedin: {
+      clientId: env.LINKEDIN_CLIENT_ID!,
+      clientSecret: env.LINKEDIN_CLIENT_SECRET,
+    },
+    microsoft: {
+      clientId: env.MICROSOFT_CLIENT_ID!,
+      clientSecret: env.MICROSOFT_CLIENT_SECRET,
+    },
+  },
+  plugins: [nextCookies()]
+});
