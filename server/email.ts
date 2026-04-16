@@ -1,28 +1,28 @@
-import { env } from "@/env.mjs";
 import { createTransport } from "nodemailer";
 import type SMTPTransport from "nodemailer/lib/smtp-transport";
+import { env } from "@/env.mjs";
 
 const TRANSPORT: SMTPTransport.Options = {
-  auth: {
-    pass: env.MAILER_PASSWORD,
-    user: env.MAILER_USER,
-  },
-  host: env.MAILER_HOST,
-  port: Number(env.MAILER_PORT),
-  secure: true,
+	auth: {
+		pass: env.MAILER_PASSWORD,
+		user: env.MAILER_USER,
+	},
+	host: env.MAILER_HOST,
+	port: Number(env.MAILER_PORT),
+	secure: true,
 };
 
 interface sendEmailProps {
-  to: string;
-  subject: string;
-  html: string;
+	to: string;
+	subject: string;
+	html: string;
 }
-export const sendEmail = async ({to, subject, html}: sendEmailProps) => {
-  const transporter = await createTransport(TRANSPORT);
-  return transporter.sendMail({
-    from: env.MAILER_USER,
-    to,
-    subject,
-    html,
-  });
-}
+export const sendEmail = async ({ to, subject, html }: sendEmailProps) => {
+	const transporter = await createTransport(TRANSPORT);
+	return transporter.sendMail({
+		from: env.MAILER_USER,
+		to,
+		subject,
+		html,
+	});
+};
