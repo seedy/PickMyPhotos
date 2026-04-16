@@ -12,6 +12,7 @@ export const env = createEnv({
 		DATABASE_URL: z.url().min(1),
 		BETTER_AUTH_SECRET: z.string().min(1),
 		BETTER_AUTH_URL: z.url().min(1),
+		BETTER_AUTH_API_KEY: z.string().min(1),
 		MAILER_HOST: z.string().min(1),
 		MAILER_PASSWORD: z.string().min(1),
 		MAILER_PORT: z.string().min(1),
