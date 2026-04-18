@@ -3,13 +3,13 @@ import type SMTPTransport from "nodemailer/lib/smtp-transport";
 import { env } from "@/env.mjs";
 
 const TRANSPORT: SMTPTransport.Options = {
-  auth: {
-    pass: env.MAILER_PASSWORD,
-    user: env.MAILER_USER,
-  },
-  host: env.MAILER_HOST,
-  port: Number(env.MAILER_PORT),
-  secure: true,
+	auth: {
+		pass: env.MAILER_PASSWORD,
+		user: env.MAILER_USER,
+	},
+	host: env.MAILER_HOST,
+	port: Number(env.MAILER_PORT),
+	secure: true,
 };
 
 interface sendEmailProps {

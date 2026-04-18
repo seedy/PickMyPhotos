@@ -51,5 +51,5 @@ export const auth = betterAuth({
 			clientSecret: env.MICROSOFT_CLIENT_SECRET,
 		},
 	},
-	plugins: [nextCookies(), dash({apiKey: env.BETTER_AUTH_API_KEY})],
+	plugins: [nextCookies(), dash({ apiKey: env.BETTER_AUTH_API_KEY })],
 });
