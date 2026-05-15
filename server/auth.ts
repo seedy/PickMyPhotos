@@ -1,12 +1,17 @@
 import { dash } from "@better-auth/infra";
 import { betterAuth } from "better-auth";
+import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { after } from "next/server";
+import { db } from "@/db";
 import { env } from "@/env.mjs";
 import { sendEmail } from "@/server/email";
 
 export const auth = betterAuth({
 	baseURL: "http://localhost:3000/",
+	database: drizzleAdapter(db, {
+		provider: "pg",
+	}),
 	emailAndPassword: {
 		enabled: true,
 		autoSignIn: false,
@@ -52,4 +57,5 @@ export const auth = betterAuth({
 		},
 	},
 	plugins: [nextCookies(), dash({ apiKey: env.BETTER_AUTH_API_KEY })],
+	trustedOrigins: [env.BETTER_AUTH_URL],
 });

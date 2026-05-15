@@ -8,7 +8,12 @@
 		"start": "next start",
 		"lint:eslint": "eslint",
 		"lint:tsc": "tsc --noEmit",
-		"lint:biome": "biome check --write"
+		"lint:biome": "biome check --write",
+		"lint": "pnpm run lint:eslint && pnpm run lint:tsc && pnpm run lint:biome",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio"
 	},
 	"dependencies": {
 		"@aws-sdk/client-s3": "^3.1026.0",

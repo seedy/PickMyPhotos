@@ -26,3 +26,18 @@ export const sendEmail = async ({ to, subject, html }: sendEmailProps) => {
 		html,
 	});
 };
+
+interface sendMagicLinkProps {
+	to: string;
+	url: string;
+}
+export const sendMagicLink = async ({ to, url }: sendMagicLinkProps) => {
+	return sendEmail({
+		to,
+		subject: "Your access link",
+		html: `
+            <p>Click the link below to sign in. It expires in 10 minutes.</p>
+            <a href="${url}">Sign in</a>
+          `,
+	});
+};

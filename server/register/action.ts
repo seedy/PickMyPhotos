@@ -5,20 +5,25 @@ import {
 	createServerValidate,
 	ServerValidateError,
 } from "@tanstack/react-form-nextjs";
-import { registerFormOptions } from "@/models/form";
+import { REGISTER_SCHEMA, registerFormOptions } from "@/models/auth";
 
 // Create the server action that will infer the types of the form from `formOpts`
 const serverValidate = createServerValidate({
 	...registerFormOptions,
 	onServerValidate: ({ value }) => {
-		if (value.email === "") {
-			return "Server validation: empty email";
-		}
+		const result = REGISTER_SCHEMA.safeParse(value);
+		console.log(result);
+		if (!result.success) return result.error;
+		return;
 	},
 });
 
-export default async function registerAction(formData: FormData) {
+export default async function registerAction(
+	prev: unknown,
+	formData: FormData,
+) {
 	try {
+		console.log("formData", formData);
 		const validatedData = await serverValidate(formData);
 		console.log("validatedData", validatedData);
 		// Persist the form data to the database
