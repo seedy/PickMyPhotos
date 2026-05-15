@@ -1,18 +1,18 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit"
-  },
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.indentSize": "tabSize",
-  "editor.insertSpaces": true,
-  "editor.tabSize": 2,
-  "emmet.showExpandedAbbreviation": "never",
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-  "js/ts.tsdk.path": "node_modules/typescript/lib"
+	"editor.codeActionsOnSave": {
+		"source.fixAll.biome": "explicit"
+	},
+	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	"editor.indentSize": "tabSize",
+	"editor.insertSpaces": true,
+	"editor.tabSize": 2,
+	"emmet.showExpandedAbbreviation": "never",
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+	],
+	"js/ts.tsdk.path": "node_modules/typescript/lib"
 }
